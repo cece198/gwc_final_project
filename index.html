@@ -30,7 +30,7 @@
 				blue=color[2];
 			}
 			
-			void drawBody(){
+			void drawBag(){
 				noStroke();
 				fill(red, green, blue);
 				ellipse(xPos+45, yPos-20, width, width);
@@ -83,7 +83,7 @@
 			background(200,255,255);
 			
 			for(var i=0; i<list.length; i++){
-				list[i].drawBody();
+				list[i].drawBag();
 				list[i].Move();
 			}
 		}
