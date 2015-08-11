@@ -1,7 +1,3 @@
-function mouseDown() {
-    document.getElementById("myP").style.color = "red";
-}
-
-function mouseUp() {
-    document.getElementById("myP").style.color = "green";
+function myFunction() {
+    document.getElementById("demo").style="red";
 }
