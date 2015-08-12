@@ -3,8 +3,10 @@
 <html>
 	<head>
 		<script src="process.js"></script>
+		<script type="FP.js"></script>
+		<script type="style.css"></script>
 		<script type="text/processing" data-processing-target="mycanvas">
-		
+
 		
 		class Bag
 		{
@@ -59,18 +61,15 @@
 		void setup(){
 			
 			size(1920,1078);
-			background(255,255,255);
-			
+			background("backbackback.jpg");
+			img = loadImage("showimage.png")
+
 			var num = random(2,5);
 			for(var i=0; i < 5; i++){
 				var randX = random(0,200);
 				var randY= random(0,878);
-				var a = random(0,255);
-				var b = random(0,230);
-				var c = random(0,240);
-				var randColor=[a,b,c];
 				var s = random(0,10);
-				list.push(new Bag(50,20,randX,randY,s,s,randColor));
+				list.push(new Bag(50,20,randX,randY,s,s,"showimage.png"));
 			}
 		}
 			
@@ -78,8 +77,8 @@
 			
 		void draw(){  
 			noStroke();
-			background(200,255,255);
-			
+			background(backbackback.jpg);
+			image("showimage.png",0,0)
 			for(var i=0; i<list.length; i++){
 				list[i].drawBody();
 				list[i].Move();
@@ -89,7 +88,43 @@
 			
 		</script>
 	</head>
-	<body>
+	<body background = "backbackback.jpg" bgcolor="#353F00">
 		<canvas id="mycanvas"></canvas>
+
+		<marquee scrollamount="15"
+		direction="right"
+		behavior="scroll">
+		<img src="empty.png" />
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:0px;margin-top:10px;z-index:100;"/>
+		</marquee>
+
+		<marquee scrollamount="20"
+		direction="right"
+		behavior="scroll">
+		<img src="empty.png" />
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:60%;width:100px;height:100px;margin-left:0px;margin-top:10px;z-index:100;"/>
+		</marquee>
+
+		<marquee scrollamount="10"
+		direction="right"
+		behavior="scroll">
+		<img src="empty.png" />
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:65%;width:100px;height:100px;margin-left:20px;margin-top:10px;z-index:100;"/>
+		</marquee>
+
+		<marquee scrollamount="15"
+		direction="right"
+		behavior="scroll">
+		<img src="empty.png" />
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:70%;width:100px;height:100px;margin-left:20px;margin-top:10px;z-index:100;"/>
+		</marquee>
+
+		<marquee scrollamount="20"
+		direction="right"
+		behavior="scroll">
+		<img src="empty.png" />
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:80%;width:100px;height:100px;margin-left:20px;margin-top:10px;z-index:100;"/>
+		</marquee>
+				
 	</body>
 </html>
