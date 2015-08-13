@@ -1,11 +1,9 @@
 p.inline {
     display: inline;
 }
-body{
-	var bgReady = false;
-	var bgImage = new Image();
-	bgImage.onload = function () {
-		bgReady = true;
-	};
-	bgImage.src = "backbackback.jpg
+
+div {
+    background: url(backbackback.png);
+    background-size: 960px 536px;
+    background-repeat: no-repeat;
 }

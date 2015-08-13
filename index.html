@@ -7,84 +7,7 @@
 		<script type="style.css"></script>
 		<script type="text/processing" data-processing-target="mycanvas">
 
-		
-		class Bag
-		{
-			var xSpeed;
-			var ySpeed;
-			var xPos;
-			var yPos;
-			var red;
-			var green;
-			var blue;
-			var width;
-			var height;
 			
-			Bag(w, h, x, y, speedX, speedY,color){
-				xPos=x;
-				yPos=y;
-				xSpeed=speedX;
-				ySpeed=speedY;
-				width=w;
-				height=h;
-				red=color[0];
-				green=color[1];
-				blue=color[2];
-			}
-			
-			void drawBody(){
-				noStroke();
-				fill(red, green, blue);
-				ellipse(xPos+45, yPos-20, width, width);
-			}
-			
-			void Move(){
-				xPos=xPos-xSpeed;
-				//yPos=yPos-ySpeed;
-				
-				if (xPos<=0 || xPos>=1220){
-					xSpeed=xSpeed*-1;
-				}
-				
-				if (yPos<=0 || yPos>=978){
-					ySpeed=ySpeed*-1;
-				}
-				
-				if (xPos>=1220){
-					xSpeed=0;
-				}
-			}
-			
-		}
-		
-		var list=[];
-		void setup(){
-			
-			size(1920,1078);
-			background("backbackback.jpg");
-			img = loadImage("showimage.png")
-
-			var num = random(2,5);
-			for(var i=0; i < 5; i++){
-				var randX = random(0,200);
-				var randY= random(0,878);
-				var s = random(0,10);
-				list.push(new Bag(50,20,randX,randY,s,s,"showimage.png"));
-			}
-		}
-			
-			
-			
-		void draw(){  
-			noStroke();
-			background(backbackback.jpg);
-			image("showimage.png",0,0)
-			for(var i=0; i<list.length; i++){
-				list[i].drawBody();
-				list[i].Move();
-			}
-		}
-						
 			
 		</script>
 	</head>
@@ -95,35 +18,35 @@
 		direction="right"
 		behavior="scroll">
 		<img src="empty.png" />
-		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:0px;margin-top:10px;z-index:100;"/>
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:0px;margin-top:5px;z-index:50;"/>
 		</marquee>
 
 		<marquee scrollamount="20"
 		direction="right"
 		behavior="scroll">
 		<img src="empty.png" />
-		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:60%;width:100px;height:100px;margin-left:0px;margin-top:10px;z-index:100;"/>
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:0px;margin-top:5px;z-index:50;"/>
 		</marquee>
 
 		<marquee scrollamount="10"
 		direction="right"
 		behavior="scroll">
 		<img src="empty.png" />
-		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:65%;width:100px;height:100px;margin-left:20px;margin-top:10px;z-index:100;"/>
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:20px;margin-top:5px;z-index:50;"/>
 		</marquee>
 
 		<marquee scrollamount="15"
 		direction="right"
 		behavior="scroll">
 		<img src="empty.png" />
-		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:70%;width:100px;height:100px;margin-left:20px;margin-top:10px;z-index:100;"/>
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:20px;margin-top:5px;z-index:50;"/>
 		</marquee>
 
 		<marquee scrollamount="20"
 		direction="right"
 		behavior="scroll">
 		<img src="empty.png" />
-		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:80%;width:100px;height:100px;margin-left:20px;margin-top:10px;z-index:100;"/>
+		<img src="showimage.png" onclick="this.style.display='none';" style="position:absolute;opacity:1;left:15%;top:75%;width:100px;height:100px;margin-left:20px;margin-top:5px;z-index:50;"/>
 		</marquee>
 				
 	</body>
