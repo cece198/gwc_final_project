@@ -1,6 +1,7 @@
 	
-		class Bag
-		{
+var count = 0;
+	class Bag
+	{
 			var xSpeed;
 			var ySpeed;
 			var xPos;
@@ -10,6 +11,7 @@
 			var blue;
 			var width;
 			var height;
+			
 			
 			Bag(w, h, x, y, speedX, speedY,color)
 			{
@@ -24,22 +26,16 @@
 				blue=color[2];
 			}
 			
-			void drawBody()
-			{
+			void drawBody(){
 				noStroke();
 				fill(red, green, blue);
 				rect(xPos+9,yPos+40,80,30);
 				rect(xPos+9,yPos+80,80,30);
 				rect(xPos+40,yPos+40,60,70);
 				
-				//set drawBody=true
-				//if drawBody=false
-					//move off the screen
-				
 			}
 			
-			void drawBody2()
-			{
+			void drawBody2(){
 				noStroke();
 				fill(red, green, blue);
 				rect(xPos+100, yPos+160, 20, 80);
@@ -47,36 +43,36 @@
 				rect(xPos+120, yPos+180, 40,60);
 			}
 			
-			void Move()
-			{
+			void Move(){
 				xPos=xPos-xSpeed;
 				
-				if (xPos<=0 || xPos>=1220)
-				{
+				if (xPos<=0 || xPos>=1100){
 					xSpeed=xSpeed*-1;
 				}
 				
-				if (yPos<=0 || yPos>=978)
-				{
+				if (yPos<=0 || yPos>=850){
 					ySpeed=ySpeed*-1;
 				}
 				
-				if (xPos>=1220)
-				{
+				if (xPos>=1100){
 					xSpeed=0;
 				}
-				
-				//var b = Move();
-				//b = "true";
-				//if b= "false"
-				//{
-					//xPos = 300000;
-				//}
-				//else {
-					//alert("Not Working");
-				//}
 			}
-		}
+			bool shouldDisappear(x,y)
+			{
+				if((x<=xPos + 100 || x>= xPos - 100) && (y<=yPos + 160 || y>= yPos - 160) 
+					&& (x<=xPos + 160 || x>= xPos - 160) && (y<=yPos + 160 || y>= yPos - 160) 
+					&& (x<=xPos + 120 || x>= xPos - 120) && (y<=yPos + 180 || y>= yPos - 180))
+				{
+					list[0].hide();//make bag disappear here
+					return true; // true means bag was clicked
+				}
+				else
+				{
+					return false;
+				}
+			}
+	}
 		
 		class Tree
 		{
@@ -90,8 +86,7 @@
 			var width;
 			var height;
 			
-			Tree(w, h, x, y, speedX, speedY,color)
-			{
+			Tree(w, h, x, y, speedX, speedY,color){
 				xPos=x;
 				yPos=y;
 				xSpeed=speedX;
@@ -102,28 +97,29 @@
 				green=color[1];
 				blue=color[2];
 			}
-			void drawTree()
-			{
+			void drawTree(){
 				noStroke();
-				fill(red,green,blue);
+				
+				fill(97,56,0);
+				rect(1250, 340, 200, 978);
+				
+				fill(28,192,30);
+				ellipse(1250, 320, 300, 300);
+				ellipse(1400, 320, 300, 300);
+				ellipse(1300, 200, 300, 300);
+				ellipse(1395, 200, 300, 300);
 
-				rect(112, 170, 75, 200);
-
-				ellipse(100, 100, 100, 100);
-				ellipse(200, 150, 100, 100);
-				ellipse(125, 155, 100, 100);
-				ellipse(170, 85, 100, 100);
-				ellipse(230, 110, 80, 80);
-				ellipse(80, 140, 80, 80);
-				ellipse(130, 55, 80, 80);
+				fill(59, 37, 7);
+				ellipse(1350, 640, 130, 200)
 			}
 		}
 		
 		var list=[];
 		var tre3;
-		void setup()
-		{
-			size(1920,1078);
+		
+		void setup(){
+			
+			size(1500,900);
 			background(255,255,255);
 			
 			var num = random(2,3);
@@ -131,10 +127,6 @@
 			{
 				var randX = random(0,200);
 				var randY= random(0,878);
-				//var a = random(0,255);
-				//var b = random(0,230);
-				//var c = random(0,240);
-				//var randColor=[a,b,c];
 				var col0r = [255, 255, 204];
 				var c0lor = [173, 173, 133];
 				var s = random(3,5);
@@ -143,12 +135,13 @@
 				tre3 = (new Tree(50,20,randX,randY,s,s,c0lor));
 			}
 		}
-				
-		void draw()
-		{  
+			
+			
+			
+		void draw(){
 			noStroke();
 			background(153, 174, 194);
-			
+			document.getElementById("count").innerHTML=count;
 			tre3.drawTree();
 			
 			for(var i=0; i<list.length; i++)
@@ -158,6 +151,15 @@
 				list[i].Move();
 			}
 		}
-		//mouseClicked = function() {
-			//set drawbody=false
-		//};
+		
+		void mousePressed(){
+			if(list[0].shouldDisappear(mouseX,mouseY))
+			{
+				shouldDraw=false;
+				count=count+1;
+			}
+			
+		}
+
+
+
