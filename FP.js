@@ -153,6 +153,26 @@ var count = 0;
 		background(153, 174, 194);
 		document.getElementById("count").innerHTML=count;
 		tre3.drawTree();
+		fill(245, 255, 255);
+		ellipse(200,400,250,250);
+		ellipse(300,400,250,250);
+		ellipse(250,400,250,250);
+		ellipse(230,350,250,250);
+		//ellipse(260,170,250,250);
+		
+		fill(230,255,255);
+		ellipse(600,700,150,150);
+		ellipse(700,700,150,150);
+		ellipse(650,700,150,150);
+		ellipse(630,650,150,150);
+		ellipse(660,700,150,150);
+		
+		fill(240,255,255);
+		ellipse(850,300,350,350);
+		ellipse(900,180,350,350);
+		ellipse(850,340,250,250);
+		ellipse(730,250,350,350);
+		ellipse(860,300,250,250);
 		
 		for(var i=0; i<list.length; i++)
 		{
