@@ -139,7 +139,7 @@ var count = 0;
 			var randY= random(0,878);
 			var col0r = [255, 255, 204];
 			var c0lor = [173, 173, 133];
-			var s = random(3,5);
+			var s = random(3,4);
 			list.push(new Bag(50,20,randX,randY,s,s,col0r));
 			list.push(new Bag(50,20,randX,randY,s,s,col0r));
 			tre3 = (new Tree(50,20,randX,randY,s,s,c0lor));
