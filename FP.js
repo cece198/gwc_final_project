@@ -56,6 +56,8 @@ var count = 0;
 				
 				if (xPos>=1100){
 					xSpeed=0;
+					alert("You Lost!");
+					alert("Refresh the page to play again");
 				}
 			}
 			//bool shouldDisappear(xPos,yPos){}
@@ -158,7 +160,6 @@ var count = 0;
 		ellipse(300,400,250,250);
 		ellipse(250,400,250,250);
 		ellipse(230,350,250,250);
-		//ellipse(260,170,250,250);
 		
 		fill(230,255,255);
 		ellipse(600,700,150,150);
@@ -179,7 +180,6 @@ var count = 0;
 
 			if(list[i].drawing==true){
 				list[i].drawBody();
-				//list[i].drawBody2();
 				list[i].Move();
 			}
 		}
