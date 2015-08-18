@@ -134,7 +134,7 @@ var count = 0;
 		size(1500,900);
 		background(255,255,255);
 		
-		var num = random(4,9);
+		var num = random(4,6);
 		for(var i=0; i < num; i++)
 		{
 			var randX = random(0,200);
