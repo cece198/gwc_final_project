@@ -71,7 +71,7 @@ var count = 0;
 				ySpeed=0;
 				//return true; // true means bag was clicked
 			}	
-			if(((x<=xPos + 40 && x>= xPos - 9) && (y<=yPos + 40 && y>= yPos - 40)))
+			if(((x<=xPos + 40 && x>=xPos - 9) && (y<=yPos + 40 && y>=yPos - 40)))
 			{//HORIZONTAL
 				count=count+1;
 				drawing=false;
@@ -80,6 +80,15 @@ var count = 0;
 				xSpeed=0;
 				ySpeed=0;
 				//return true; // true means bag was clicked
+			}
+			if(((x<=xPos + 80 && x>=xPos - 9) && (y<=yPos + 80 && y>=yPos - 80)))
+			{
+				count=count+1;
+				drawing=false;
+				xPos=-500;
+				yPos=-500;
+				xSpeed=0;
+				ySpeed=0;
 			}
 		}
 	}
