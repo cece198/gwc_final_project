@@ -192,12 +192,12 @@ var count = 0;
 
 	void mousePressed()
 	{
-		for(var i=0; i<list.length; i++){
+		for(var i=0; i<list.length; i++)
+		{
 			if(list[i].mousePressed(mouseX,mouseY))
 			{
 				count=count+1;
 			}
-		alert("You Won!");
 		}	
-
+		alert("You Won!")
 	}
