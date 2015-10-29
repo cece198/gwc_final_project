@@ -1,91 +1,87 @@
 var count = 0;
 	class Bag
 	{
-			var xSpeed;
-			var ySpeed;
-			var xPos;
-			var yPos;
-			var red;
-			var green;
-			var blue;
-			var width;
-			var height;
-			var drawing;
+		var xSpeed;
+		var ySpeed;
+		var xPos;
+		var yPos;
+		var red;
+		var green;
+		var blue;
+		var width;
+		var height;
+		var drawing;
 			
-			Bag(w, h, x, y, speedX, speedY,color)
+		Bag(w, h, x, y, speedX, speedY,color)
+		{
+			xPos=x;
+			yPos=y;
+			xSpeed=speedX;
+			ySpeed=speedY;
+			width=w;
+			height=h;
+			red=color[0];
+			green=color[1];
+			blue=color[2];
+			drawing=true;
+		}
+		void drawBody()
+		{
+			noStroke();
+			fill(red, green, blue);
+			rect(xPos+9,yPos+40,80,30);//1
+			rect(xPos+9,yPos+80,80,30);//2
+			rect(xPos+40,yPos+40,60,70);//3				
+		}
+		void drawBody2()
+		{
+			noStroke();
+			fill(red, green, blue);
+			rect(xPos+100, yPos+160, 20, 80);//1
+			rect(xPos+160, yPos+160, 20, 80);//2
+			rect(xPos+120, yPos+180, 40,60);//3
+		}
+		void Move()
+		{
+			xPos=xPos-xSpeed;
+			if (xPos<=0 || xPos>=1100)
 			{
-				xPos=x;
-				yPos=y;
-				xSpeed=speedX;
-				ySpeed=speedY;
-				width=w;
-				height=h;
-				red=color[0];
-				green=color[1];
-				blue=color[2];
-				drawing=true;
+				xSpeed=xSpeed*-1;
 			}
-			
-			void drawBody(){
-				noStroke();
-				fill(red, green, blue);
-				rect(xPos+9,yPos+40,80,30);//1
-				rect(xPos+9,yPos+80,80,30);//2
-				rect(xPos+40,yPos+40,60,70);//3
-				
+			if (yPos<=0 || yPos>=850)
+			{
+				ySpeed=ySpeed*-1;
+			}		
+			if (xPos>=1100)
+			{
+				xSpeed=0;
+				alert("You Lost!");
+				alert("Refresh the page to play again");
 			}
-			
-			void drawBody2(){
-				noStroke();
-				fill(red, green, blue);
-				rect(xPos+100, yPos+160, 20, 80);//1
-				rect(xPos+160, yPos+160, 20, 80);//2
-				rect(xPos+120, yPos+180, 40,60);//3
+		}
+		void mousePressed(x,y)
+		{	
+			if(((x<=xPos + 50 && x>= xPos - 50) && (y<=yPos + 80 && y>= yPos - 80)))
+			{//VERTICAL && body2
+				count = count+1;
+				drawing=false;
+				xPos=-500;
+				yPos=-500;
+				xSpeed=0;
+				ySpeed=0;
+				//return true; // true means bag was clicked
+			}	
+			if(((x<=xPos + 40 && x>= xPos - 9) && (y<=yPos + 40 && y>= yPos - 40)))
+			{//HORIZONTAL
+				count=count+1;
+				drawing=false;
+				xPos=-500;
+				yPos=-500;
+				xSpeed=0;
+				ySpeed=0;
+				//return true; // true means bag was clicked
 			}
-			
-			void Move(){
-				xPos=xPos-xSpeed;
-				
-				if (xPos<=0 || xPos>=1100){
-					xSpeed=xSpeed*-1;
-				}
-				
-				if (yPos<=0 || yPos>=850){
-					ySpeed=ySpeed*-1;
-				}
-				
-				if (xPos>=1100){
-					xSpeed=0;
-					alert("You Lost!");
-					alert("Refresh the page to play again");
-				}
-			}
-			//bool shouldDisappear(xPos,yPos){}
-			void mousePressed(x,y)
-			{	
-				if(((x<=xPos + 50 && x>= xPos - 50) && (y<=yPos + 80 && y>= yPos - 80)))
-				{//VERTICAL && body2
-					count = count+1;
-					drawing=false;
-					xPos=-500;
-					yPos=-500;
-					xSpeed=0;
-					ySpeed=0;
-					//return true; // true means bag was clicked
-				}
-				
-				if(((x<=xPos + 40 && x>= xPos - 9) && (y<=yPos + 40 && y>= yPos - 40)))
-				{//HORIZONTAL
-					count=count+1;
-					drawing=false;
-					xPos=-500;
-					yPos=-500;
-					xSpeed=0;
-					ySpeed=0;
-					//return true; // true means bag was clicked
-				}
-				
-			}
+		}
 	}
 		
 	class Tree
